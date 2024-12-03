@@ -1,0 +1,10 @@
+Sitemap: https://authorservices.springernature.com/sitemap.xml
+Sitemap: https://authorservices.springernature.com/news-sitemap.xml
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: https://authorservices.springernature.com/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content='text/html; charset=UTF-8' http_equiv='Content-Type'>
+<meta charset='utf-8'>
+<script nonce="nvM9ug9oXPwcjDeXW5H0Aw==">var _rollbarConfig = {"accessToken":"8d83d95e8b014ecaaa8f7c09c672f5b6","captureUncaught":true,"captureUnhandledRejections":true,"checkIgnore":// This JS is imported into the Rollbar initializer as explained in
+// https://docs.rollbar.com/docs/integration-with-rollbarjs
+//
+// However, this file has been separated from the .rb file for readability and
+// maintainability in JS instead of living within a ruby file.
+//
+// Be careful with updates to this file as the Rollbar parser is finicky
+// and parsing errors will result in Ruby errors being ignored.
+// In particular, do not include double-quotes
+// This warning applies to the comments as well.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function checkIgnore(isUncaught, args, payload) {
+  const excludedFilenames = /^(safari|chrome)-extension:\/\//;
+  const shouldIgnore = payload.body.trace.frames.some(function (item) {
+    return excludedFilenames.test(item.filename);
+  });
+  return shouldIgnore;
+}
+,"ignoredMessages":["ibPauseAllVideos","ibFindAllVideos"],"filterTelemetry":function(event) {
+  return event.type === 'network'
+    && (event.body.subtype === 'xhr' || event.body.subtype === 'fetch')
+    && event.body.url.indexOf('https://api.segment.io') === 0;
+}
+,"payload":{"environment":"production","client":{"javascript":{"source_map_enabled":true,"code_version":"6ffa0588be993b90ecb3f51d64d8d16871f31b59","guess_uncaught_frames":true}}}};</script>
+<script nonce="nvM9ug9oXPwcjDeXW5H0Aw==">!function(r){var e={};function o(n){if(e[n])return e[n].exports;var t=e[n]={i:n,l:!1,exports:{}};return r[n].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.m=r,o.c=e,o.d=function(r,e,n){o.o(r,e)||Object.defineProperty(r,e,{enumerable:!0,get:n})},o.r=function(r){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(r,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(r,"__esModule",{value:!0})},o.t=function(r,e){if(1&e&&(r=o(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var t in r)o.d(n,t,function(e){return r[e]}.bind(null,t));return n},o.n=function(r){var e=r&&r.__esModule?function(){return r.default}:function(){return r};return o.d(e,"a",e),e},o.o=function(r,e){return Object.prototype.hasOwnProperty.call(r,e)},o.p="",o(o.s=0)}([function(r,e,o){"use strict";var n=o(1),t=o(5);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdn.rollbar.com/rollbarjs/refs/tags/v2.26.1/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){"use strict";var n=o(2),t=o(3);function a(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}var l=0;function i(r,e){this.options=r,this._rollbarOldOnError=null;var o=l++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}var s=o(4),d=function(r,e){return new i(r,e)},c=function(r){return new s(d,r)};function u(r){return a((function(){var e=this,o=Array.prototype.slice.call(arguments,0),n={shim:e,method:r,args:o,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)}))}i.prototype.loadFull=function(r,e,o,n,t){var l=!1,i=e.createElement("script"),s=e.getElementsByTagName("script")[0],d=s.parentNode;i.crossOrigin="",i.src=n.rollbarJsUrl,o||(i.async=!0),i.onload=i.onreadystatechange=a((function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){i.onload=i.onreadystatechange=null;try{d.removeChild(i)}catch(r){}l=!0,function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,a,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(a=n.args||[],i=0;i<a.length;++i)if("function"==typeof(l=a[i])){l(e);break}}"function"==typeof t&&t(e)}()}})),d.insertBefore(i,s)},i.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw e&&("string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e),e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var p="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<p.length;++f)i.prototype[p[f]]=u(p[f]);r.exports={setupShim:function(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var l=new c(e);return a((function(){e.captureUncaught&&(l._rollbarOldOnError=r.onerror,n.captureUncaughtExceptions(r,l,!0),e.wrapGlobalEventHandlers&&t(r,l,!0)),e.captureUnhandledRejections&&n.captureUnhandledRejections(r,l,!0);var a=e.autoInstrument;return!1!==e.enabled&&(void 0===a||!0===a||function(r){return!("object"!=typeof r||void 0!==r.page&&!r.page)}(a))&&r.addEventListener&&(r.addEventListener("load",l.captureLoad.bind(l)),r.addEventListener("DOMContentLoaded",l.captureDomContentLoaded.bind(l))),r[o]=l,l}))()}},Rollbar:c}},function(r,e,o){"use strict";function n(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null);var t=e.handleUncaughtException.apply(e,n);o&&o.apply(r,n),"anonymous"===t&&(e.anonymousErrorsPending+=1)}r.exports={captureUncaughtExceptions:function(r,e,o){if(r){var t;if("function"==typeof e._rollbarOldOnError)t=e._rollbarOldOnError;else if(r.onerror){for(t=r.onerror;t._rollbarOldOnError;)t=t._rollbarOldOnError;e._rollbarOldOnError=t}e.handleAnonymousErrors();var a=function(){var o=Array.prototype.slice.call(arguments,0);n(r,e,t,o)};o&&(a._rollbarOldOnError=t),r.onerror=a}},captureUnhandledRejections:function(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}}},function(r,e,o){"use strict";function n(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports=function(r,e,o){if(r){var t,a,l="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(t=0;t<l.length;++t)r[a=l[t]]&&r[a].prototype&&n(e,r[a].prototype,o)}}},function(r,e,o){"use strict";function n(r,e){this.impl=r(e,this),this.options=e,function(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}(n.prototype)}n.prototype._swapAndProcessMessages=function(r,e){var o,n,t;for(this.impl=r(this.options);o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=n},function(r,e,o){"use strict";r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){for(var o,n,t=(r=r||{}).globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);</script>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1' name='viewport'>
+<title>Patch | Documentation</title>
+<link href='../../cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css' rel='stylesheet'>
+<link href='../../fonts.googleapis.com/css2/index%EF%B9%96family=Inter%EF%B9%95ital,wght@0,400%EF%B9%940,700%EF%B9%941,400%EF%B9%941,700&amp;display=swap.css' rel='stylesheet'>
+<link href='../../fonts.googleapis.com/css2/index%EF%B9%96family=IBM+Plex+Mono%EF%B9%95wght@300%EF%B9%94400%EF%B9%94500&amp;display=swap.css' rel='stylesheet'>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="YbyMBs5U2plWpslsjivNOGbmZC8zbZA4PzNlWm1ADFpwsECiGKVN_bobZ1576ttQc8vAKwUUIzW37GTU7oOY9A" />
+<meta name="csp-nonce" content="nvM9ug9oXPwcjDeXW5H0Aw==" />
+<script nonce="nvM9ug9oXPwcjDeXW5H0Aw==">
+//<![CDATA[
+window.gon={};gon.session_id="10b02e787c181bd879dd4417bb5cc612";gon.app_version="6ffa0588be993b90ecb3f51d64d8d16871f31b59";gon.environment="production";gon.request_id="1bfdc394-bbac-4025-8686-815d4de8a40e";gon.mapbox_token="pk.eyJ1IjoiamFtZXNrbGVpbiIsImEiOiJja3Y4NTU3ZXgyMGtzMndubjBoMWFvbXVtIn0.XUK7n8Er3NEWu7scdBbEgg";gon.cancel_reserved_order_timeout_minutes=30;gon.asset_host="cdn.patch.io";
+//]]>
+</script>
+<link href='../apple-touch-icon.png' rel='apple-touch-icon' sizes='180x180'>
+<link href='../favicon.png' rel='icon' type='image/png'>
+<link href='../site.webmanifest.txt' rel='manifest'>
+<link color='#000000' href='../safari-pinned-tab.svg' rel='mask-icon'>
+<meta content='#ffffff' name='msapplication-TileColor'>
+<meta content='#ffffff' name='theme-color'>
+
+<link rel="stylesheet" href="../../cdn.patch.io/assets/docs-dced1df88ea77ea4d43d0deb6cbf46caaf53d00b7283410fc546088a63deba75.css" nonce="nvM9ug9oXPwcjDeXW5H0Aw==" media="all" />
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw=='>
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};
+analytics.SNIPPET_VERSION="4.15.3";
+var segmentWriteKey = window.segmentWriteKey = "BUZ8oX6wNIVJNHkbeW53jrU0GG6w5B0i"
+analytics._writeKey = segmentWriteKey;
+if (true) {
+  analytics.load(segmentWriteKey);
+}
+}}();
+
+</script>
+
+<script data-domain='docs.patch.io' defer src='../../plausible.io/js/plausible.js'></script>
+</head>
+<body>
+<div id='app'></div>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw=='>
+analytics.track("Docs Viewed");
+</script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw=='>
+window.$docsify = {
+  basePath: "/",
+  homepage: "home.md",
+  auto2top: true,
+  loadNavbar: true,
+  loadSidebar: true,
+  subMaxLevel: 2,
+  copyCode: {
+    buttonText: "Copy"
+  },
+}
+</script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/docsify@4.12.1/lib/docsify.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/prismjs/components/prism-ruby.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw==' src='../../cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js'></script>
+<script nonce='nvM9ug9oXPwcjDeXW5H0Aw=='>
+function nativeScrollTo(id){
+  // Persist original Docsify URL (e.g. /#/orders?id=foo)
+  var docsifyUrl = window.location.href;
+
+  // Use native browser implementation to scroll to ID
+  window.location.href = "#" + id;
+
+  // Restore original URL in the address bar
+  window.history.replaceState(null, null, docsifyUrl);
+}
+
+var id = window.location.hash.split("?id=")[1]
+if (id) {
+  setTimeout(function(){ nativeScrollTo(id) }, 1000)
+}
+</script>
+</body>
+</html>

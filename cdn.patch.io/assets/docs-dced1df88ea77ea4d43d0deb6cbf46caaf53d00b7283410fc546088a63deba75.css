@@ -1,0 +1,135 @@
+/* prettier-ignore */
+code[class*=language-],
+pre[class*=language-] {
+  color: #f8f8f2;
+  background: #ffffff;
+  font-family: "Courier New", ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*=language-] {
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #1a1b17;
+}
+
+.token.punctuation {
+  color: #080807;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #080807;
+}
+
+.token.boolean,
+.token.number {
+  color: #f36869;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #25856d;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #25856d;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #847806;
+}
+
+.token.keyword {
+  color: #847806;
+}
+
+.token.regex,
+.token.important {
+  color: #ffd700;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+:root {
+  --theme-color: #4f7d6d;
+  --docsifytabs-content-padding: 0;
+  --docsifytabs-tab-background: white;
+  --docsifytabs-tab-background--active: white;
+  --docsifytabs-tab-highlight-color: #4f7d6d;
+  --code-block-margin: 0;
+  --code-theme-background: white;
+  --code-inline-background: none;
+  --code-inline-margin: 0;
+  --code-font-family: "IBM Plex Mono", monospace;
+  --base-font-family: "Muoto", sans-serif;
+  --base-background-color: $carbon-200;
+  --link-color: $carbon-900;
+  --link-text-decoration: underline;
+  --link-text-decoration--hover: none;
+  --sidebar-background: white;
+  --sidebar-nav-link-border-color--active: #4f7d6d;
+  --sidebar-nav-link-color--active: #4f7d6d;
+  --sidebar-nav-strong-margin: 0;
+  --sidebar-nav-link-before-content-l3: "";
+  --table-body-border-color: var(--table-cell-border-color);
+  --table-head-border-color: var(--table-cell-border-color);
+  --table-head-border-width: 1px;
+  --table-body-border-width: 1px;
+}
+
+.logo {
+  margin-bottom: 1rem;
+  width: 111px;
+  height: 42px;
+}
+
+.sidebar p {
+  margin: 1rem 0 0.25rem;
+}
+
+/*# sourceMappingURL=docs.css.map */

@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Xbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
